@@ -1,0 +1,19 @@
+{
+    "name": "mvoelkner/silverstripe-restricted-page-tree",
+    "description": "Gives CMS groups a flat, permission-scoped view of the Pages section: only pages explicitly assigned to the group are shown, regardless of where they sit in the site tree. Creating and deleting pages is disabled for restricted members.",
+    "type": "silverstripe-vendormodule",
+    "require": {
+        "php": "^8.1",
+        "silverstripe/cms": "^6"
+    },
+    "autoload": {
+        "psr-4": {
+            "MVoelkner\\RestrictedPageTree\\": "src/"
+        }
+    },
+    "extra": {
+        "expose": []
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,11 @@
+---
+Name: 'mvoelkner-restrictedpagetree-extensions'
+---
+SilverStripe\Security\Group:
+  extensions:
+    - MVoelkner\RestrictedPageTree\GroupPageRestrictionExtension
+
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - MVoelkner\RestrictedPageTree\RestrictedPageTreeExtension
+  tree_children_method: FlatChildrenForRestrictedGroups
