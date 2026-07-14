@@ -1,0 +1,38 @@
+SilverStripe\Security\Group:
+  restricted:
+    Title: Restricted Group
+    Code: restricted-group
+    OnlyShowAssignedPages: 1
+  admin:
+    Title: Admin Group
+
+SilverStripe\Security\Permission:
+  admin_perm:
+    Code: ADMIN
+    Group: =>SilverStripe\Security\Group.admin
+
+SilverStripe\Security\Member:
+  restrictedmember:
+    Email: restricted@example.com
+    Groups: =>SilverStripe\Security\Group.restricted
+  adminmember:
+    Email: pagesadmin@example.com
+    Groups: =>SilverStripe\Security\Group.admin
+  restrictedadminmember:
+    Email: restrictedadmin@example.com
+    Groups: =>SilverStripe\Security\Group.restricted,=>SilverStripe\Security\Group.admin
+  plainmember:
+    Email: plain@example.com
+
+SilverStripe\CMS\Model\SiteTree:
+  assigned:
+    Title: Assigned Page
+    CanViewType: OnlyTheseUsers
+    CanEditType: OnlyTheseUsers
+    ViewerGroups: =>SilverStripe\Security\Group.restricted
+    EditorGroups: =>SilverStripe\Security\Group.restricted
+  other:
+    Title: Other Page
+  childofassigned:
+    Title: Child Of Assigned
+    ParentID: =>SilverStripe\CMS\Model\SiteTree.assigned

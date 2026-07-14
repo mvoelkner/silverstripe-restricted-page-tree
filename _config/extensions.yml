@@ -4,8 +4,13 @@ Name: 'mvoelkner-restrictedpagetree-extensions'
 SilverStripe\Security\Group:
   extensions:
     - MVoelkner\RestrictedPageTree\GroupPageRestrictionExtension
+    - MVoelkner\RestrictedPageTree\GroupFileRestrictionExtension
 
 SilverStripe\CMS\Model\SiteTree:
   extensions:
     - MVoelkner\RestrictedPageTree\RestrictedPageTreeExtension
   tree_children_method: FlatChildrenForRestrictedGroups
+
+SilverStripe\Assets\File:
+  extensions:
+    - MVoelkner\RestrictedPageTree\RestrictedFileAccessExtension

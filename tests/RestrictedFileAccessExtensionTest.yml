@@ -1,0 +1,27 @@
+SilverStripe\Security\Group:
+  filesgroup:
+    Title: Files Restricted Group
+    Code: files-restricted-group
+    UseOwnFileFolder: 1
+  admin:
+    Title: Files Admin Group
+
+SilverStripe\Security\Permission:
+  admin_perm:
+    Code: ADMIN
+    Group: =>SilverStripe\Security\Group.admin
+  filesgroup_perm:
+    Code: CMS_ACCESS_AssetAdmin
+    Group: =>SilverStripe\Security\Group.filesgroup
+
+SilverStripe\Security\Member:
+  filesmember:
+    Email: filesmember@example.com
+    Groups: =>SilverStripe\Security\Group.filesgroup
+  adminmember:
+    Email: filesadmin@example.com
+    Groups: =>SilverStripe\Security\Group.admin
+
+SilverStripe\Assets\Folder:
+  otherfolder:
+    Name: other-folder
